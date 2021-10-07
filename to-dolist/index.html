@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./index.css"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <title>To do List</title>
+  </head>
+  <body>
+    <header class="header__logo"><h1>To do List</h1></header>
+    <nav class="options">
+      <button class="options__today">
+        오늘만 보기
+      </button>
+      <button class="options__tomorrow">
+        내일만 보기
+      </button>
+      <button class="options__both">
+        함께 보기
+      </button>
+    </nav>
+    <main class="todos">
+      <section class="todos__today">
+        <h2 class="todos__header">오늘 할 일</h2>
+        <ul class="todos__items">
+          <li class="todos__item">
+            <span class="todos__name">자료구조 공부하기</span>
+            <button class="todos__delete"><i class="fas fa-trash"></i></button>
+          </li>
+          <li class="todos__item">
+            <span class="todos__name">레이아웃 디자인 짜기</span>
+            <button class="todos_delete"><i class="fas fa-trash"></i></button>
+          </li>
+          <li class="todos__item">
+            <span class="todos__name">sopt 과제 뿌시기</span>
+            <button class="todos__delete"><i class="fas fa-trash"></i></button>
+          </li>
+        </ul>
+        <input class="todos__input" type="text" />
+      </section>
+      <section class="todos__tomorrow">
+        <h2 class="todos__header">내일 할 일</h2>
+        <ul class="todos__items">
+          <li class="todos__item">
+            <span class="todos__name">react로 컴포넌트 만들어보기</span>
+            <button class="todos__delete"><i class="fas fa-trash"></i></button>
+          </li>
+          <li class="todos__item">
+            <span class="todos__name">javascript 스터디 커리큘럼 찾아보기</span>
+            <button class="todos__delete"><i class="fas fa-trash"></i></button>
+          </li>
+        </ul>
+        <input class="todos__input" type="text" />
+      </section>
+    </main>
+    <footer class="footer">
+        SOPT 29th Web Part
+    </footer>
+  </body>
+</html>
