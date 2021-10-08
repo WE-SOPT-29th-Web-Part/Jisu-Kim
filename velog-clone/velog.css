@@ -1,0 +1,257 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(0 0 0 / 3%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: white;
+  border: none;
+}
+
+nav {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  background-color: none;
+}
+
+.nav__right-box {
+  display: flex;
+  align-items: center;
+  width: 15rem;
+  justify-content: space-between;
+}
+
+.nav__search {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.nav__search:hover {
+  background-color: #bce4d7;
+  border-radius: 50%;
+  transition: ease-in 300ms;
+}
+
+.nav__my-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.nav__profile-img {
+  width: 2.5rem;
+  outline: none;
+  border: none;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  object-fit: cover;
+  background-image: url("./static/Wkd.jpg");
+}
+
+.nav__post-btn {
+  border: solid 1px rgb(52, 58, 64);
+  border-radius: 1rem;
+  padding: 6px 12px;
+  color: black;
+  background: white;
+}
+
+.nav__post-btn:hover {
+  background-color: #4fe5b3;
+  border-color: #4fe5b3;
+  color: white;
+  font-weight: 500;
+  transition: all ease-in-out 300ms;
+}
+
+main {
+  padding: 0 1rem;
+}
+
+/* tab */
+
+tab {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tab__left-box {
+  display: flex;
+  align-items: center;
+}
+
+.tab__trending {
+  cursor: pointer;
+  display: flex;
+  width: 6rem;
+  height: 3rem;
+  color: rgb(134, 142, 150);
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  font-weight: 600;
+}
+
+.active {
+  color: rgb(52, 58, 64);
+  border-bottom: solid 2px rgb(52, 58, 64);
+}
+
+.tab__trending svg {
+  margin-right: 1rem;
+}
+
+.tab__dropdown {
+  cursor: pointer;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  padding: 6px;
+  color: black;
+  box-shadow: rgb(0 0 0 / 5%) 0px 0px 4px;
+  background: white;
+  display: flex;
+  height: 2rem;
+  width: 5.25rem;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tab__dropdown:hover {
+  color: rgb(75, 80, 84);
+}
+
+.tab__kebab {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 0;
+}
+
+.tab__kebab {
+  background: none;
+}
+
+/* 포스트카드 */
+
+.main__post-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-top: 1rem;
+}
+
+.main__img-box {
+  display: flex;
+  height: 40%;
+}
+
+.main__post-thumbnail {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  display: flex;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.main__postcard {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
+
+  height: 22.5rem;
+  margin: 1rem;
+  width: 18.5rem;
+}
+
+.main__postcard:hover {
+  transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+}
+
+.main__desc-box {
+  display: flex;
+  padding: 0.8rem 1rem 0rem 1rem;
+  flex-direction: column;
+}
+
+.main__post-title {
+  line-height: 1.4;
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+}
+
+.main__post-content {
+  line-height: 1.5;
+  font-size: 0.875rem;
+  color: rgb(75, 80, 84);
+}
+
+.main__post-date {
+  margin: 1rem 0 0.8rem 0;
+  font-size: 0.75rem;
+  color: rgb(134, 142, 150);
+}
+
+.main__card-bottom {
+  display: flex;
+  border-top: solid 1px #ccc;
+  padding: 4px 0;
+  color: grey;
+  font-size: 14px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main__auth-profile-box {
+  display: flex;
+  align-items: center;
+}
+
+.main__profile {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.main__like-btn {
+  display: flex;
+  align-items: center;
+}
