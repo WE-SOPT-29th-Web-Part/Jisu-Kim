@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 100;
+  color: cadetblue;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.header {
+  height: 50px;
+  font-size: 32px;
+  color: white;
+  background-color: thistle;
+}
+
+.header__logo {
+  font-size: 32px;
+  text-align: center;
+
+  height: 50px;
+  line-height: 50px;
+}
+
+.options {
+  margin: 10px 0;
+
+  text-align: center;
+}
+
+.options button {
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  color: darkgrey;
+  padding: 6px 8px;
+  margin: 0 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.options__btn {
+  background-color: orange;
+  border: 0;
+  color: white;
+}
+
+.todos {
+  display: flex;
+  flex-grow: 1;
+  background-color: whitesmoke;
+}
+
+.todos__header {
+  font-size: 1.4rem;
+  color: cadetblue;
+  font-weight: 400;
+}
+
+.todos__today,
+.todos__tomorrow {
+  transition: ease-in-out 500ms;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todos__today {
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todos__items {
+  flex-grow: 1;
+  width: 100%;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.todos__item {
+  color: darkslategray;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid darkgray;
+  margin-bottom: 6px;
+}
+
+.todos__name {
+  height: 36px;
+  line-height: 36px;
+}
+
+.todos__delete {
+  border: none;
+  background-color: none;
+}
+
+.fa-trash {
+  color: tomato;
+}
+
+.todos__input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+}
+
+.todos__btn-container {
+  padding: 5px 0;
+}
+
+.todos__btn {
+  background-image: url(assets/icon/addIc.svg);
+  background-color: white;
+  border-radius: 50%;
+
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.todos__input {
+  width: 80%;
+  height: 2rem;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.footer {
+  color: white;
+  line-height: 50px;
+  color: white;
+  background-color: cadetblue;
+  text-align: center;
+}
+
+.open {
+  display: flex;
+  transition: ease-in-out 500ms;
+}
+
+.close {
+  display: none;
+  transition: ease-in 500ms;
+}
