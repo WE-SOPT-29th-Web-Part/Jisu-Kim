@@ -2,26 +2,25 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./index.css"> 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
     <title>To do List</title>
   </head>
   <body>
     <header class="header__logo"><h1>To do List</h1></header>
     <nav class="options">
-      <button class="options__today" onclick="todayOpen()">
-        오늘만 보기
-      </button>
-      <button class="options__tomorrow" onclick="tomorrowOpen()">
-        내일만 보기
-      </button>
-      <button class="options__both" onclick="bothOpen()">
-        함께 보기
-      </button>
+      <button class="options__today">오늘만 보기</button>
+      <button class="options__tomorrow">내일만 보기</button>
+      <button class="options__both">함께 보기</button>
     </nav>
-    <main class="todos">
-      <section class="todos__today">
-        <h2 class="todos__header open">오늘 할 일</h2>
+    <main>
+      <section class="todos__today todos open">
+        <h2 class="todos__header">시형이가 할 일</h2>
         <ul class="todos__items">
           <li class="todos__item">
             <span class="todos__name">자료구조 공부하기</span>
@@ -38,8 +37,8 @@
         </ul>
         <input class="todos__input" type="text" />
       </section>
-      <section class="todos__tomorrow">
-        <h2 class="todos__header open">내일 할 일</h2>
+      <section class="todos__tomorrow todos open">
+        <h2 class="todos__header">내일 할 일</h2>
         <ul class="todos__items">
           <li class="todos__item">
             <span class="todos__name">react로 컴포넌트 만들어보기</span>
@@ -53,28 +52,47 @@
         <input class="todos__input" type="text" />
       </section>
     </main>
-    <footer class="footer">
-        SOPT 29th Web Part
-    </footer>
+    <footer class="footer">SOPT 29th Web Part</footer>
   </body>
 
   <script>
-    const tomorrowTodo = document.querySelector('.todos__tomorrow');
-    const todayTodo = document.querySelector('.todos__today');
-    
-    function todayOpen() {
-      tomorrowTodo.style.display = 'none';
-      todayTodo.style.display = 'flex';
-      }
-    
-    function tomorrowOpen() {
-      tomorrowTodo.style.display = 'flex';
-      todayTodo.style.display = 'none';
-    }
+    // const tomorrowTodo = document.querySelector('.todos__tomorrow');
+    // const todayTodo = document.querySelector('.todos__today');
 
-    function bothOpen() {
-      tomorrowTodo.style.display = 'flex';
-      todayTodo.style.display = 'flex';
-    }
+    // function todayOpen() {
+    //   tomorrowTodo.style.display = 'none';
+    //   todayTodo.style.display = 'flex';
+    //   }
+
+    // function tomorrowOpen() {
+    //   tomorrowTodo.style.display = 'flex';
+    //   todayTodo.style.display = 'none';
+    // }
+
+    // function bothOpen() {
+    //   tomorrowTodo.style.display = 'flex';
+    //   todayTodo.style.display = 'flex';
+    // }
+    const nav = document.querySelector("nav");
+    const Todos = document.querySelectorAll(".todos");
+    nav.addEventListener("click", (e) => {
+      if (e.target.tagName !== "BUTTON") return; //nav빈공간 눌렀을 땐 아무 변경 X
+
+      //switch문으로 3가지 버튼 한버에 관리하기
+      switch (e.target.className) {
+        case "options__today":
+          Todos[1].classList.remove("open");
+          Todos[0].classList.add("open");
+          break;
+        case "options__tomorrow":
+          Todos[0].classList.remove("open");
+          Todos[1].classList.add("open");
+          break;
+        case "options__both":
+          Todos[0].classList.add("open");
+          Todos[1].classList.add("open");
+          break;
+      }
+    });
   </script>
 </html>
