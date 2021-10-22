@@ -86,6 +86,7 @@ nav {
 }
 
 .nav__post-btn {
+  cursor: pointer;
   border: solid 1px rgb(52, 58, 64);
   border-radius: 1rem;
   padding: 6px 12px;
