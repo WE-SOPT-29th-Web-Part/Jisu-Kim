@@ -1,9 +1,9 @@
 "use strict";
 
 const dropDown = document.querySelector(".tab__dropdown");
+const dropList = document.querySelector(".tab__dropList");
 
 function onClickDrop() {
-  let dropList = document.querySelector(".tab__dropList");
   if ((dropList.style.visibility = "hidden")) {
     dropList.style.visibility = "visible";
   } else if ((dropList.style.visibility = "visible")) {
@@ -12,7 +12,17 @@ function onClickDrop() {
 }
 
 dropDown.addEventListener("click", () => onClickDrop());
-//droplist눌렀을 때 텍스트바뀌게하기
+//drop-list눌렀을 때 텍스트바뀌게하기
+const periods = document.querySelectorAll(".tab__dropList > li");
+
+periods.forEach((elem, i) => {
+  elem.addEventListener("click", (e) => {
+    const currentPeriod = document.querySelector(".tab__dropdown > a > span");
+    let selectedPeriod = e.target.innerText;
+    currentPeriod.innerText = selectedPeriod;
+    console.log(e.target);
+  });
+});
 
 //postcard index가져와서 해당 콘텐츠 모달로 띄우기
 const postCards = document.querySelectorAll(".main__postcard");
