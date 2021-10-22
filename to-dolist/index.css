@@ -39,6 +39,7 @@ main {
 }
 
 .todos {
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,12 +136,6 @@ main {
   color: tomato;
 }
 
-.todos__input {
-  width: 100%;
-  border: 0;
-  outline: 0;
-}
-
 .todos__btn-container {
   padding: 5px 0;
 }
@@ -155,18 +150,37 @@ main {
   cursor: pointer;
 }
 
+.todo__input-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+}
+
 .todos__input {
+  font-size: 1rem;
+  padding: 6px 14px;
+  outline: none;
+  display: inline-block;
   width: 80%;
-  height: 2rem;
+  height: 2.4rem;
   border: none;
   border-radius: 6px;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  background-color: whitesmoke;
+  color: cadetblue;
+}
+
+.fa-plus-circle {
+  color: cadetblue;
+  font-size: 1rem;
+  margin-left: 1rem;
 }
 
 .footer {
   color: white;
   line-height: 50px;
-  color: white;
   background-color: cadetblue;
   text-align: center;
 }

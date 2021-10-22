@@ -28,14 +28,19 @@
           </li>
           <li class="todos__item">
             <span class="todos__name">레이아웃 디자인 짜기</span>
-            <button class="todos_delete"><i class="fas fa-trash"></i></button>
+            <button class="todos__delete"><i class="fas fa-trash"></i></button>
           </li>
           <li class="todos__item">
             <span class="todos__name">sopt 과제 뿌시기</span>
             <button class="todos__delete"><i class="fas fa-trash"></i></button>
           </li>
         </ul>
-        <input class="todos__input" type="text" />
+        <div class="todo__input-box">
+          <input class="todos__input" type="text" />
+          <button class="todos__add">
+            <i class="fas fa-plus-circle"></i>
+          </button>
+        </div>
       </section>
       <section class="todos__tomorrow todos open">
         <h2 class="todos__header">내일 할 일</h2>
@@ -49,13 +54,25 @@
             <button class="todos__delete"><i class="fas fa-trash"></i></button>
           </li>
         </ul>
-        <input class="todos__input" type="text" />
+        <div class="todo__input-box">
+          <input class="todos__input" type="text" />
+          <button class="todos__add">
+            <i class="fas fa-plus-circle"></i>
+          </button>
+        </div>
       </section>
     </main>
     <footer class="footer">SOPT 29th Web Part</footer>
   </body>
 
   <script>
+    "use strict";
+
+    //1. plus 버튼 클릭하면 투두리스트 추가
+    //2. input에서 enter 눌러도 투두리스트 추가
+    //3. delete 버튼 누르면 투두리스트 제거
+    //4. 오늘 할 일, 내일 할 일 필터링
+
     // const tomorrowTodo = document.querySelector('.todos__tomorrow');
     // const todayTodo = document.querySelector('.todos__today');
 
@@ -75,6 +92,7 @@
     // }
     const nav = document.querySelector("nav");
     const Todos = document.querySelectorAll(".todos");
+
     nav.addEventListener("click", (e) => {
       if (e.target.tagName !== "BUTTON") return; //nav빈공간 눌렀을 땐 아무 변경 X
 
@@ -94,5 +112,47 @@
           break;
       }
     });
+
+    const deleteBtns = document.querySelectorAll(".todos__delete");
+    const addInputs = document.querySelectorAll('.todos__input');
+    const todoLists = document.querySelectorAll(".todos__item");
+    //delete 버튼 구현하기
+    //오늘 할 일인지, 내일 할 일인지, 몇 번째 항목인지 알아야 함.
+    deleteBtns.forEach((btn, i) => { 
+      btn.addEventListener("click", () => todoLists[i].remove())
+    });
+
+    // 플러스 버튼 누를 때 추가되게 하기
+    const plusBtns = document.querySelector('.todos__add');
+
+    //plusBtn눌렀을 때 addTodo함수 실행되게 하기
+    plusBtns.forEach((btn, index) => {
+      btn.addEventListener("click", () => addTodo(index))
+    });
+
+    //enter쳤을 때 addTodo함수 실행되게 하기
+    inputs.forEach((input, index) => {
+      input.addEventListener("keyup", (e) => {
+        if (e.key == "Enter") {
+          addTodo(index);
+        }
+      })
+    });
+
+    //addTodo함수 ( 새로운 todo list 추가시키는 함수)
+    function addTodo(text, index) {
+      const li = document.createElement("li");
+      const span = document.createElement("span");
+      const deleteIcon = document.createElement("i");
+      const deleteBtn = document.createElement("button");
+
+      deleteIcon.setAttribute("class", "fas fa-trash");
+      deleteBtn.appendChild(deleteIcon);
+      span.innerText = text;
+      li.appendChild(span);
+      li.appendChild(deleteIcon);
+
+    }
+    
   </script>
 </html>
