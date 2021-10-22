@@ -7,6 +7,12 @@ body {
   margin: 0;
 }
 
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 h1,
 h2,
 h3,
@@ -135,6 +141,8 @@ tab {
 }
 
 .tab__dropdown {
+  position: relative;
+
   cursor: pointer;
   font-size: 0.875rem;
   border-radius: 6px;
@@ -142,7 +150,6 @@ tab {
   color: black;
   box-shadow: rgb(0 0 0 / 5%) 0px 0px 4px;
   background: white;
-  display: flex;
   height: 2rem;
   width: 5.25rem;
   text-align: center;
@@ -150,8 +157,42 @@ tab {
   justify-content: space-around;
 }
 
+.tab__dropdown > a {
+  display: flex;
+  align-items: center;
+}
+
 .tab__dropdown:hover {
   color: rgb(75, 80, 84);
+}
+
+.tab__dropList {
+  visibility: hidden;
+
+  margin: 0.5rem 0 0 0;
+  position: absolute;
+  text-align: initial;
+  left: 0;
+  top: 100%;
+  line-height: 2rem;
+  background-color: white;
+  border-radius: 0.3rem;
+  font-size: 0.875rem;
+  padding: 0;
+  z-index: 3;
+  box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
+}
+
+.tab__dropList > li {
+  width: 8rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+.tab__dropList > li:hover {
+  background: whitesmoke;
+  color: #4fe5b3;
 }
 
 .tab__kebab {
