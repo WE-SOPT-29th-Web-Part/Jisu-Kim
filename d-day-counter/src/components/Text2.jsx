@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Text2({year, month, day}) {
+function Text2({year, month, date}) {
   return (
     <div className="text__left">
       <div>

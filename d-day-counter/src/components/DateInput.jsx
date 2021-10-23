@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DateInput({setYear, setMonth, setDay, year, month, day}) {
+function DateInput({setYear, setMonth, setDate, year, month, date}) {
   const handleChange = (e, setState) => {
     setState(e.target.value);
   }
@@ -12,7 +12,7 @@ function DateInput({setYear, setMonth, setDay, year, month, day}) {
     const TodayMonth = new Date().getMonth() + 1;
     setYear(TodayYear);
     setMonth(TodayMonth);
-    setDay(TodayDate);
+    setDate(TodayDate);
 
   }
   //상태 끌어올리기 : 상태를 부모컴포넌트로 올린다..
@@ -21,7 +21,7 @@ function DateInput({setYear, setMonth, setDay, year, month, day}) {
       <div class="inputWrapper">
         <input onChange={(e) => handleChange(e, setYear)} type="text" className="dateInput__input" value={year}/>년
         <input onChange={(e) => handleChange(e, setMonth)} type="text" className="dateInput__input" value={month}/>월
-        <input onChange={(e) => handleChange(e, setDay)}  type="text" className="dateInput__input" value={day}/>일을 기준으로
+        <input onChange={(e) => handleChange(e, setDate)}  type="text" className="dateInput__input" value={date}/>일을 기준으로
       </div>
       <button onClick={onClickToday}>오늘</button>
     </div>

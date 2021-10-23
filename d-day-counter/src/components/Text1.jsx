@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Text1({year, month, day}) {
+function Text1({year, month, date}) {
   //1. 날짜표시해줄 값을 만들고, 상태변경되게한다.
   //2. input으로부터 값(inputDate)을 받아온다.
   //3. inputDate와 props로 받아온 년, 월, 일을 더해서 날짜형식으로 표시한다. (일 수를 지나치면 월로 넘어가게)
@@ -9,7 +9,8 @@ function Text1({year, month, day}) {
 
   const onChangeDate = (e) => {
     let inputDate =  e.target.value;
-    const baseDate = new Date(year, month, day);
+
+    const baseDate = new Date(year, month, date);
     console.log(baseDate + inputDate);
     console.log(baseDate);
   }

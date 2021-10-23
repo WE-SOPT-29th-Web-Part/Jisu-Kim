@@ -22,14 +22,14 @@ function App() {
   const [year, setYear] = useState(new Date().getFullYear());
   //자스에선 Month가 0월부터시작.
   const [month, setMonth] = useState(new Date().getMonth()+1);
-  const [day, setDay] = useState(new Date().getDate());
+  const [date, setDate] = useState(new Date().getDate());
 
   return (
     <div id="app">
     <Header />
-    <DateInput year={year} month={month} day={day} setYear={setYear} setMonth={setMonth} setDay={setDay}/>
+    <DateInput year={year} month={month} date={date} setYear={setYear} setMonth={setMonth} setDate={setDate}/>
     <CenterText />
-    <Result year={year} month={month} day={day} setYear={setYear} setMonth={setMonth} setDay={setDay}/>
+    <Result year={year} month={month} date={date} setYear={setYear} setMonth={setMonth} setDate={setDate}/>
     <Footer />
     </div>
   );
