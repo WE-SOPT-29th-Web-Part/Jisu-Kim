@@ -12,6 +12,9 @@ input.addEventListener("keyup", (e) => {
     const tagArea = document.querySelector(".tag__area");
     tagArea.appendChild(tag);
     e.target.value = "";
+
+    tag.style.cursor = "pointer";
+    tag.addEventListener("click", () => tag.remove());
   }
 });
 
