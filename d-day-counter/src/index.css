@@ -6,7 +6,17 @@ body,
 }
 
 body {
-  margin: 0;
+  margin: 3rem;
+}
+
+input {
+  padding: 4px 10px;
+  color: grey;
+  border: solid 2px cornflowerblue;
+  font-size: 1rem;
+  border-radius: 1rem;
+  width: 4rem;
+  margin: 1rem 0.8rem;
 }
 
 #root {
@@ -21,29 +31,37 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 800px;
+  padding: 2rem;
+  border: solid 1px lightgrey;
+  width: 600px;
+  height: 400px;
   box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 3%);
 }
 
-#dateInput {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+/* dateInput 영역 */
+
+/* 오늘버튼 */
+#dateInput button {
+  width: 8rem;
+  margin: 6px auto 20px;
+  color: white;
+  border: none;
+  background: cornflowerblue;
+  padding: 0.5rem 2rem;
+  font-weight: 600;
+  border-radius: 4px;
+  box-shadow: 4px 4px 4px 0 rgb(0 0 0 / 14%);
+  display: block;
+}
+
+.inputWrapper {
+  color: grey;
+  font-size: 0.875erm;
 }
 
 .result {
   width: 100%;
-}
-
-.text__left {
-  margin: 1rem 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.dateInput__input {
-  width: 80%;
+  margin: 4px 0;
 }
 
 h2 {
@@ -61,9 +79,31 @@ h2 {
   text-align: center;
 }
 
+.text__left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: grey;
+}
+
 .text {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 1rem 0.5rem;
+}
+
+.centerLine {
+  font-weight: 600;
+  font-weight: 14px;
+  padding: 4px;
+}
+
+#footer {
+  text-align: center;
+  background-color: cornflowerblue;
+  color: white;
+  width: 100%;
+  font-size: 0.75rem;
+  padding: 8px;
 }

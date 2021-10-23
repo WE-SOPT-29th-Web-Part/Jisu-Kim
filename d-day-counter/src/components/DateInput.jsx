@@ -18,12 +18,12 @@ function DateInput({setYear, setMonth, setDay, year, month, day}) {
   //상태 끌어올리기 : 상태를 부모컴포넌트로 올린다..
   return (
     <div id="dateInput">
-      <button onClick={onClickToday}>오늘</button>
-      <div>
+      <div class="inputWrapper">
         <input onChange={(e) => handleChange(e, setYear)} type="text" className="dateInput__input" value={year}/>년
         <input onChange={(e) => handleChange(e, setMonth)} type="text" className="dateInput__input" value={month}/>월
         <input onChange={(e) => handleChange(e, setDay)}  type="text" className="dateInput__input" value={day}/>일을 기준으로
       </div>
+      <button onClick={onClickToday}>오늘</button>
     </div>
   )
 }

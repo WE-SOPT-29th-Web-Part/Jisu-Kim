@@ -2,8 +2,8 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div>
-      footer
+    <div id="footer">
+      만든이 : SOPT 29기 WEB part 김지수👩🏻
     </div>
   )
 }
