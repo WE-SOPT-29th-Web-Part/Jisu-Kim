@@ -4,11 +4,7 @@ const dropDown = document.querySelector(".tab__dropdown");
 const dropList = document.querySelector(".tab__dropList");
 
 function onClickDrop() {
-  if ((dropList.style.visibility = "hidden")) {
-    dropList.style.visibility = "visible";
-  } else if ((dropList.style.visibility = "visible")) {
-    dropList.style.visibility = "hidden";
-  }
+  dropList.classList.toggle("modal-hidden");
 }
 
 dropDown.addEventListener("click", () => onClickDrop());

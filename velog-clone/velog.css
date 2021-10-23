@@ -168,8 +168,6 @@ tab {
 }
 
 .tab__dropList {
-  visibility: hidden;
-
   margin: 0.5rem 0 0 0;
   position: absolute;
   text-align: initial;
