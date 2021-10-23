@@ -2,8 +2,30 @@
   box-sizing: border-box;
 }
 
+:root {
+  --title-color: black;
+  --content-color: rgb(37, 37, 37);
+  --bg-color: rgb(0 0 0 / 3%);
+  --box-bg-color: white;
+  --btn-color: white;
+  --btn-hover-color: whitesmoke;
+  --pointer-color: #4fe5b3;
+  --dropdown-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: white;
+    --content-color: rgb(231, 231, 231);
+    --bg-color: rgb(35, 35, 35);
+    --box-bg-color: rgb(77, 77, 77)
+    --btn-color:
+    --dropdown-color: rgb(37, 37, 37);
+  }
+}
+
 body {
-  background-color: rgb(0 0 0 / 3%);
+  background-color: var(--bg-color);
   margin: 1rem 0;
 }
 
@@ -26,10 +48,15 @@ a {
   text-decoration: none;
 }
 
+path {
+  fill: var(--text-color);
+}
+
 button {
   cursor: pointer;
-  background-color: white;
+  background-color: var(--box-bg-color);
   border: none;
+  color: var(--text-color);
 }
 
 nav {
@@ -45,6 +72,7 @@ nav {
 }
 
 .nav__right-box {
+  color: var(--text-color);
   display: flex;
   align-items: center;
   width: 15rem;
@@ -133,8 +161,8 @@ tab {
 }
 
 .active {
-  color: rgb(52, 58, 64);
-  border-bottom: solid 2px rgb(52, 58, 64);
+  color: var(--content-color);
+  border-bottom: solid 2px var(--content-color);
 }
 
 .tab__trending svg {
@@ -148,9 +176,9 @@ tab {
   font-size: 0.875rem;
   border-radius: 6px;
   padding: 6px;
-  color: black;
+  color: var(--dropdown-color);
   box-shadow: rgb(0 0 0 / 5%) 0px 0px 4px;
-  background: white;
+  background: var(--bg-color);
   height: 2rem;
   width: 5.25rem;
   text-align: center;
