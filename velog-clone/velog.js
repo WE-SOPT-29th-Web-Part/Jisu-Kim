@@ -32,6 +32,7 @@ postCards.forEach((post, index) => {
   });
 });
 
+const body = document.querySelector("body");
 function showModal(i) {
   const cardContent = postCards[i].cloneNode(true);
 
@@ -46,7 +47,6 @@ function showModal(i) {
   modalBack.classList.add("modal-back");
   modalBody.classList.add("modal-body");
 
-  const body = document.querySelector("body");
   body.style.overflow = "hidden";
   body.appendChild(modalBack);
 }
@@ -58,6 +58,7 @@ function createCloseBtn(modalBack) {
   closeBtn.classList.add("close-btn");
   closeBtn.addEventListener("click", () => {
     modalBack.classList.add("modal-hidden");
+    body.style.overflow = "scroll";
   });
   return closeBtn;
 }

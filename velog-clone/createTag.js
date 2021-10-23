@@ -14,3 +14,5 @@ input.addEventListener("keyup", (e) => {
     e.target.value = "";
   }
 });
+
+//tag삭제하기
