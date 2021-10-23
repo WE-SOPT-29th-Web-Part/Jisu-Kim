@@ -8,11 +8,14 @@ function Text1({year, month, date}) {
   const [calcDate, setCalcDate] = useState("언제일까요?");
 
   const onChangeDate = (e) => {
-    let inputDate =  e.target.value;
 
-    const baseDate = new Date(year, month, date);
-    console.log(baseDate + inputDate);
-    console.log(baseDate);
+    let inputDate =  Number(e.target.value); //input은 string으로 들어오기 때문에 형변환 필수
+
+    let baseDate = new Date(year, month-1, date); //화면에 표시하기 위해 month+1해주었던 걸 계산하기 위해 다시 -1해준다.
+    baseDate.setDate(date + inputDate);
+    let strDate = baseDate.toLocaleDateString()
+    setCalcDate(strDate);
+    console.log(year, month , date)
   }
   return (
     //변하는 값을 상태로 받아와야. = 인풋값이 변하는 값.

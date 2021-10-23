@@ -19,17 +19,17 @@ function App() {
 
   //new Date 객체는 지금 이 순간의 시간이 찍힌다.
   //new Date에서 getFullYear가져오면 지금 날짜의 년도를 가져온다.
-  const [year, setYear] = useState(new Date().getFullYear());
+  const [year, setBaseYear] = useState(new Date().getFullYear());
   //자스에선 Month가 0월부터시작.
-  const [month, setMonth] = useState(new Date().getMonth()+1);
-  const [date, setDate] = useState(new Date().getDate());
+  const [month, setBaseMonth] = useState(new Date().getMonth()+1);
+  const [date, setBaseDate] = useState(new Date().getDate());
 
   return (
     <div id="app">
     <Header />
-    <DateInput year={year} month={month} date={date} setYear={setYear} setMonth={setMonth} setDate={setDate}/>
+    <DateInput year={year} month={month} date={date} setBaseYear={setBaseYear} setBaseMonth={setBaseMonth} setBaseDate={setBaseDate}/>
     <CenterText />
-    <Result year={year} month={month} date={date} setYear={setYear} setMonth={setMonth} setDate={setDate}/>
+    <Result year={year} month={month} date={date} setBaseYear={setBaseYear} setBaseMonth={setBaseMonth} setBaseDate={setBaseDate}/>
     <Footer />
     </div>
   );
