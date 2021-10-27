@@ -1,7 +1,13 @@
-import "./App.css";
+import Profile from "./ProfileBox";
+import ProfileInput from "./ProfileInput";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div>
+      <ProfileInput />
+      <Profile />
+    </div>
+  );
 }
 
 export default App;
