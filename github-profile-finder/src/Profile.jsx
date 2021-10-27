@@ -25,11 +25,17 @@ function Profile({ info, user, open, onClickClose }) {
             </FollowBtn>
             <FollowBtn>repo {info.public_repos}개</FollowBtn>
           </FollowBox>
-        </ProfileBox>) : (<h3>검색어를 입력해보세요</h3>)
+        </ProfileBox>) : (<DefaultMsg>검색어를 입력해보세요</DefaultMsg>)
       }
     </>
   );
 }
+
+const DefaultMsg = styled.h3`
+  color: whitesmoke;
+  text-align: center;
+  margin: 5rem auto;
+`;
 
 const ProfileBox = styled.div`
   width: 24.375rem;
