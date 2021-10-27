@@ -20,7 +20,7 @@ function ProfileInput({user, setUser, onSubmit}) {
       <Title>Github Profile Finder</Title>
       <form onSubmit={onSubmit}>
         <SearchInput placeHolder="github 프로필을 검색해보세요" value={user} onChange={onChange} type="text"/>
-        <History user={user}/>
+        {/* <History user={user}/> */}
       </form>
     </SearchBox>
 
