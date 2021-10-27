@@ -2,7 +2,12 @@ import React from 'react';
 
 function DateInput({setBaseYear, setBaseMonth, setBaseDate, year, month, date}) {
   const handleChange = (e, setState) => {
-    setState(Number(e.target.value));
+    if (e.target.value > 0) {
+      setState(Math.floor(Number(e.target.value)));
+      // setState(Number(e.target.value));
+    } else {
+      setState(0)
+    }
   }
 
   //오늘눌렀을 때 날짜 오늘로 바꿔주기
