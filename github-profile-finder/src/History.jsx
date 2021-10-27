@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function History() {
+
+
+//input히스토리 최대 3개까지 뜬다.
+//히스토리 누르면 다시그 프로필박스가 뜬다.
+function History({user}) {
   return (
     <HistoryBox>
       <HistoryList>
-        안녕
+        {user}
       </HistoryList>
     </HistoryBox>
   )

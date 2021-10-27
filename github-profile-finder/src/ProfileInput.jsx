@@ -1,25 +1,27 @@
+
 import React, { useState } from 'react';
 import styled from "styled-components";
 import History from './History';
 
 
-//input히스토리 최대 3개까지 뜬다.
-//히스토리 누르면 다시그 프로필박스가 뜬다.
-
-
 //input에 따라 가져온 유저정보는 profileBox에도 필요 공통부모인 App에서 userInfo를 관리해주는 것이 적절하다. 
 
-function ProfileInput() {
-  const [user, setUser] = useState('');
-  
+//input태그를 form태그로 감싸고 onSubmit 속성을 사용하여 검색할 수 있게하자.
+function ProfileInput({user, setUser, onSubmit}) {
+   
   const onChange = (e) => {
     setUser(e.target.value);
+    console.log(user)
   }
+
+
   return (
     <SearchBox id="profileFinder">
       <Title>Github Profile Finder</Title>
-      <SearchInput placeHolder="github 프로필을 검색해보세요" value={user} onChange={onChange} type="text"/>
-      <History />
+      <form onSubmit={onSubmit}>
+        <SearchInput placeHolder="github 프로필을 검색해보세요" value={user} onChange={onChange} type="text"/>
+        <History user={user}/>
+      </form>
     </SearchBox>
 
   )
