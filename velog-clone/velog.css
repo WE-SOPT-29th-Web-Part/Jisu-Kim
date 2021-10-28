@@ -2,8 +2,36 @@
   box-sizing: border-box;
 }
 
+:root {
+  --title-color: black;
+  --content-color: rgb(37, 37, 37);
+  --bg-color: rgb(0 0 0 / 3%);
+  --box-bg-color: white;
+  --btn-color: white;
+  --btn-hover-color: whitesmoke;
+  --pointer-color: #4fe5b3;
+  --dropdown-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: white;
+    --content-color: rgb(231, 231, 231);
+    --bg-color: rgb(35, 35, 35);
+    --box-bg-color: rgb(77, 77, 77)
+    --btn-color:
+    --dropdown-color: rgb(37, 37, 37);
+  }
+}
+
 body {
-  background-color: rgb(0 0 0 / 3%);
+  background-color: var(--bg-color);
+  margin: 1rem 0;
+}
+
+li {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
@@ -20,10 +48,15 @@ a {
   text-decoration: none;
 }
 
+path {
+  fill: var(--text-color);
+}
+
 button {
   cursor: pointer;
-  background-color: white;
+  background-color: var(--box-bg-color);
   border: none;
+  color: var(--text-color);
 }
 
 nav {
@@ -39,6 +72,7 @@ nav {
 }
 
 .nav__right-box {
+  color: var(--text-color);
   display: flex;
   align-items: center;
   width: 15rem;
@@ -80,6 +114,7 @@ nav {
 }
 
 .nav__post-btn {
+  cursor: pointer;
   border: solid 1px rgb(52, 58, 64);
   border-radius: 1rem;
   padding: 6px 12px;
@@ -126,8 +161,8 @@ tab {
 }
 
 .active {
-  color: rgb(52, 58, 64);
-  border-bottom: solid 2px rgb(52, 58, 64);
+  color: var(--content-color);
+  border-bottom: solid 2px var(--content-color);
 }
 
 .tab__trending svg {
@@ -135,14 +170,15 @@ tab {
 }
 
 .tab__dropdown {
+  position: relative;
+
   cursor: pointer;
   font-size: 0.875rem;
   border-radius: 6px;
   padding: 6px;
-  color: black;
+  color: var(--dropdown-color);
   box-shadow: rgb(0 0 0 / 5%) 0px 0px 4px;
-  background: white;
-  display: flex;
+  background: var(--bg-color);
   height: 2rem;
   width: 5.25rem;
   text-align: center;
@@ -150,8 +186,40 @@ tab {
   justify-content: space-around;
 }
 
+.tab__dropdown > a {
+  display: flex;
+  align-items: center;
+}
+
 .tab__dropdown:hover {
   color: rgb(75, 80, 84);
+}
+
+.tab__dropList {
+  margin: 0.5rem 0 0 0;
+  position: absolute;
+  text-align: initial;
+  left: 0;
+  top: 100%;
+  line-height: 2rem;
+  background-color: white;
+  border-radius: 0.3rem;
+  font-size: 0.875rem;
+  padding: 0;
+  z-index: 3;
+  box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
+}
+
+.tab__dropList > li {
+  width: 8rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+.tab__dropList > li:hover {
+  background: whitesmoke;
+  color: #4fe5b3;
 }
 
 .tab__kebab {
@@ -294,4 +362,33 @@ tab {
 .main__like-btn {
   display: flex;
   align-items: center;
+}
+
+.modal-back {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn {
+  background-color: #4fe5b3;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 5px;
+  width: 2rem;
+  height: 2rem;
+  box-shadow: rgb(0 0 0 / 5%) 0px 0px 4px;
+}
+
+.modal-hidden {
+  display: none;
 }

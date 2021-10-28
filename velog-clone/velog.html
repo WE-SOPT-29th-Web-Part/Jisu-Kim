@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Velog 클론</title>
   <link rel="stylesheet" href="velog.css">
+  <script src="velog.js" defer></script>
 </head>
 <body>
   <!-- 상단 네비게이션 -->
@@ -17,7 +18,7 @@
       <a class="nav__search">
         <svg width="17" height="17" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       </a>
-      <button class="nav__post-btn">새 글 작성</button>
+      <a href="./createTag.html" class="nav__post-btn">새 글 작성</a>
       <button class="nav__my-btn">
         <img class="nav__profile-img" src="./static/hi.jpeg"/>
         <svg class="nav__dropdown" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 10l5 5 5-5H7z"/></svg>
@@ -30,8 +31,17 @@
         <a class="tab__trending active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
           트렌딩</a>
         <a class="tab__trending"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>최신</a>
-        <a class="tab__dropdown">이번 주<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 10l5 5 5-5H7z"/></svg>
-        </a>
+        <div class="tab__dropdown">
+          <a>
+            <span>이번 주</span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 10l5 5 5-5H7z"/></svg>
+            <ul class="tab__dropList">
+              <li>오늘</li>
+              <li>이번 주</li>
+              <li>이번 달</li>
+              <li>올해</li>
+            </ul>
+          </a>
+        </div>
       </div>
       <button class="tab__kebab">
         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="more" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg>
@@ -44,7 +54,7 @@
           <img class="main__post-thumbnail" src="./static/fall.jpg" /> 
         </div>
         <div class="main__desc-box">
-          <h2 class="main__post-title">신입 개발자가 알면 좋은 개발 외적인 지식</h2>
+          <h2 class="main__post-title">1 첫 번째 글입니당</h2>
           <span class="main__post-content">회사에 신입 개발자들이 들어오셨는데, 이걸 입사 직전에 알고 오시면 회사 적응이 빨라질 것 같다는 생각이 들어서 간단히...</span>
           <div class="main__post-date">2021년 9월 27일 ◾ 10개의 댓글</div>
           <div class="main__card-bottom">
@@ -62,7 +72,7 @@
           <img class="main__post-thumbnail" src="./static/fall.jpg" /> 
         </div>
         <div class="main__desc-box">
-          <h2 class="main__post-title">신입 개발자가 알면 좋은 개발 외적인 지식</h2>
+          <h2 class="main__post-title">2 두 번째 글 입니당</h2>
           <span class="main__post-content">회사에 신입 개발자들이 들어오셨는데, 이걸 입사 직전에 알고 오시면 회사 적응이 빨라질 것 같다는 생각이 들어서 간단히...</span>
           <div class="main__post-date">2021년 9월 27일 ◾ 10개의 댓글</div>
           <div class="main__card-bottom">
@@ -80,7 +90,7 @@
           <img class="main__post-thumbnail" src="./static/fall.jpg" /> 
         </div>
         <div class="main__desc-box">
-          <h2 class="main__post-title">신입 개발자가 알면 좋은 개발 외적인 지식</h2>
+          <h2 class="main__post-title">3 신입 개발자가 알면 좋은 개발 외적인 지식</h2>
           <span class="main__post-content">회사에 신입 개발자들이 들어오셨는데, 이걸 입사 직전에 알고 오시면 회사 적응이 빨라질 것 같다는 생각이 들어서 간단히...</span>
           <div class="main__post-date">2021년 9월 27일 ◾ 10개의 댓글</div>
           <div class="main__card-bottom">
