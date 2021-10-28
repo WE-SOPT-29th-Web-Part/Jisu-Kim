@@ -6,29 +6,24 @@ import styled from "styled-components";
 
 
 
-function Profile({ info, user, open, onClickClose }) {
+
+function Profile({ info, onClickClose, userResult, loading}) {
   return (
-    <>
-      {open===true ? 
-        (<ProfileBox>
-          <CloseBtn onClick={onClickClose}>X</CloseBtn>
-          <UserName href={info.html_url}>{user}</UserName>
-          <ProfileImg src={info.avatar_url} />
-          <NickName>{info.name}</NickName>
-          <ProfileBio>{info.bio || "자기소개가 없습니다"}</ProfileBio>
-          <FollowBox>
+    <ProfileBox>
+        <CloseBtn onClick={onClickClose}>X</CloseBtn>
+        <UserName href={info.html_url}>{info.login}</UserName>
+        {userResult &&<ProfileImg src={info.avatar_url} />}
+        <NickName>{info.name}</NickName>
+        {userResult && <><ProfileBio>{info.bio || "자기소개가 없습니다"}</ProfileBio>
+        <FollowBox>
             <FollowBtn>
               팔로워 {info.followers}명
-            </FollowBtn>
-            <FollowBtn>
-              팔로잉 {info.following}명
-            </FollowBtn>
-            <FollowBtn>repo {info.public_repos}개</FollowBtn>
-          </FollowBox>
-        </ProfileBox>) : (<DefaultMsg>검색어를 입력해보세요</DefaultMsg>)
-      }
-    </>
-  );
+            </FollowBtn><FollowBtn>
+                팔로잉 {info.following}명
+              </FollowBtn><FollowBtn>repo {info.public_repos}개</FollowBtn>
+        </FollowBox></>}
+      </ProfileBox>
+      )
 }
 
 const DefaultMsg = styled.h3`
@@ -39,6 +34,7 @@ const DefaultMsg = styled.h3`
 
 const ProfileBox = styled.div`
   width: 24.375rem;
+  height: 550px;
   display: flex;
   flex-direction: column;
 
@@ -47,6 +43,7 @@ const ProfileBox = styled.div`
   border-radius: 8px;
 
   background-color: #454545;
+  transition: ease 400ms;
 `;
 
 const CloseBtn = styled.button`
