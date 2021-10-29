@@ -15,22 +15,24 @@ function App() {
     e.preventDefault();
     if (user === "") {
       setOpen(false);
+      return;
     }
     //로딩중 화면 띄워주기 -- 왜 안될까?
     setLoading(true);
-    axios
+    //왜 async await 써야만 setLoading(true)가 먹을까? - 질문하기
+    await axios
       .get(`https://api.github.com/users/${user}`, {
         headers: {
           Authorization: "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",
         },
       })
       .then((result) => {
-        console.log(loading);
+        console.log(`1${loading}`);
         setInfo(result.data);
         setOpen(true);
         setUserResult(true);
         setLoading(false);
-        console.log(loading);
+        console.log(`2${loading}`);
       })
       .catch(() => {
         setUserResult(false);
