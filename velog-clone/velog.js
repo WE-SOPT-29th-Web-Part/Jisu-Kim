@@ -58,3 +58,13 @@ function createCloseBtn(modalBack) {
   });
   return closeBtn;
 }
+
+const darkModer = document.querySelector('#darkmode-checker');
+
+darkModer.addEventListener('click', e => {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('color-theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('color-theme', 'light');
+  }
+});
