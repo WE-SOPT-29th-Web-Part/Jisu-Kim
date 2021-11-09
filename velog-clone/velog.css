@@ -10,6 +10,7 @@
   --box-hover-color: whitesmoke;
   --point-color: #4fe5b3;
   --sub-color: grey;
+  --slider-color: lightgrey;
 }
 
 :root[color-theme='dark'] {
@@ -18,8 +19,8 @@
   --text-color: #ebebeb;
   --box-bg-color: #3b3b3b;
   --box-hover-color: #5b5b5b;
-  --point-color: #4fe5b3;
   --sub-color: #d5d5d5;
+  --slider-color: #4fe5b3;
 }
 
 body {
@@ -70,8 +71,8 @@ nav {
 .nav__right-box {
   color: var(--text-color);
   display: flex;
+  width: 21rem;
   align-items: center;
-  width: 15rem;
   justify-content: space-between;
 }
 
@@ -126,9 +127,41 @@ nav {
   transition: all ease-in-out 300ms;
 }
 
+#switch {
+  display: inline-block;
+  width: 4rem;
+  height: 2rem;
+  background-color: var(--slider-color);
+  border-radius: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+#darkmode-checker {
+  display: none;
+}
+
+#darkmode-checker:checked + #switch-button {
+  margin-left: 2.25rem;
+  transition: ease-in-out;
+}
+
+#switch-button {
+  margin: 6px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  
+  border-radius: 50%;
+  transition: cubic-bezier(0.25, 0.27, 0.45, 1.13) 400ms;
+}
+
 main {
   padding: 0 1rem;
 }
+
+
 
 /* tab */
 
