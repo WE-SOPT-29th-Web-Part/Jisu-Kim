@@ -1,30 +1,5 @@
-
 import styled from "styled-components";
 
-//id가있으면 프로필이 뜨고, 없으면 프로필이 없다고 떠야함
-
-
-
-
-
-function Profile({ info, onClickClose, userResult, loading}) {
-  return (
-    <ProfileBox>
-        <CloseBtn onClick={onClickClose}>X</CloseBtn>
-        <UserName href={info.html_url}>{info.login}</UserName>
-        {userResult &&<ProfileImg src={info.avatar_url} />}
-        <NickName>{info.name}</NickName>
-        {userResult && <><ProfileBio>{info.bio || "자기소개가 없습니다"}</ProfileBio>
-        <FollowBox>
-            <FollowBtn>
-              팔로워 {info.followers}명
-            </FollowBtn><FollowBtn>
-                팔로잉 {info.following}명
-              </FollowBtn><FollowBtn>repo {info.public_repos}개</FollowBtn>
-        </FollowBox></>}
-      </ProfileBox>
-      )
-}
 
 const DefaultMsg = styled.h3`
   color: whitesmoke;
@@ -119,6 +94,47 @@ const FollowBox = styled.div`
   justify-content: space-around;
   padding: 1rem 0;
 `;
+
+//id가있으면 프로필이 뜨고, 없으면 프로필이 없다고 떠야함
+
+function Profile({ data, setUserInfo }) {
+
+  const {
+    html_url,
+    login,
+    avatar_url,
+    name,
+    bio,
+    followers,
+    following,
+    public_repos,
+  } = data;
+
+  const onClickClose = () => {
+    setUserInfo((userInfo) => ({
+      ...userInfo,
+      status: 'idle',
+      data: null,
+    }));
+  };
+
+  return (
+    <ProfileBox>
+      <CloseBtn onClick={onClickClose}>X</CloseBtn>
+      <UserName href={html_url}>{login}</UserName>
+      <ProfileImg src={avatar_url} />
+      <NickName>{name}</NickName>
+      <ProfileBio>{bio || "자기소개가 없습니다"}</ProfileBio>
+      <FollowBox>
+        <FollowBtn>
+          팔로워 {followers}명
+        </FollowBtn><FollowBtn>
+          팔로잉 {following}명
+        </FollowBtn><FollowBtn>repo {public_repos}개</FollowBtn>
+      </FollowBox>
+    </ProfileBox>
+  )
+}
 
 
 

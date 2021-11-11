@@ -1,29 +1,36 @@
-
 import React, { useState } from 'react';
 import styled from "styled-components";
-import History from './History';
 
 
 //input에 따라 가져온 유저정보는 profileBox에도 필요 공통부모인 App에서 userInfo를 관리해주는 것이 적절하다. 
 
 //input태그를 form태그로 감싸고 onSubmit 속성을 사용하여 검색할 수 있게하자.
-function ProfileInput({user, setUser, onSubmit}) {
-   
+function ProfileInput({ getUserInfo }) {
+  const [user, setUser] = useState("");
+
   const onChange = (e) => {
     setUser(e.target.value);
-    console.log(user)
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //userApi 받아오는 함수
+    getUserInfo(user);
   }
 
 
   return (
     <SearchBox id="profileFinder">
       <Title>Github Profile Finder</Title>
-      <form onSubmit={onSubmit}>
-        <SearchInput placeHolder="github 프로필을 검색해보세요" value={user} onChange={onChange} type="text"/>
+      <form onSubmit={handleSubmit}>
+        <SearchInput
+          placeHolder="github 프로필을 검색해보세요"
+          value={user}
+          onChange={onChange}
+          type="text" />
         {/* <History user={user}/> */}
       </form>
     </SearchBox>
-
   )
 }
 
