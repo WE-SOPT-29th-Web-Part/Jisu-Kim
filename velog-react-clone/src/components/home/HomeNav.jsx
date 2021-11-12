@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavBody = styled.nav`
@@ -7,23 +8,37 @@ const NavBody = styled.nav`
   justify-content: center;
 `;
 
-const NavTab = styled.div`
+const NavTab = styled(Link)`
+  padding: 0.5rem;
   color: grey;
   font-size: 1.5rem;
+  border: none;
+  background: none;
+  font-weight: 600;
+  color: ${(props) => (props.current ? "black" : "grey")};
+  border-bottom: solid 2px 
+    ${(props) => (props.current ? "black" : 'transparent')};
   
   &:hover {
     color: black;
   }
+
+  transition: border-bottom 0.5s ease-in;
 `;
 
+
+
 function HomeNav() {
-  const [isActiveLine, setIsActiveLine] = useState(true);
+  const { pathname } = useLocation();
   return (
     <NavBody>
-      <NavTab>포스트</NavTab>
-      <NavTab>시리즈</NavTab>
+      <NavTab to="/" current={pathname === "/"}>포스트</NavTab>
+      <NavTab to="/series" current={pathname === "/series"}>시리즈</NavTab>
     </NavBody>
   )
 }
 
-export default HomeNav
+export default HomeNav;
+
+
+

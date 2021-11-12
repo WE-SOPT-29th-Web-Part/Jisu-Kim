@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home"
 import Write from "./pages/Write"
-import NotFound from "./pages/PagesNotFound";
-import SeriesTab from "./pages/SeriesTab";
+import ArticleContainer from "./components/home/ArticleContainer";
+import SeriesContainer from "./components/home/SeriesContainer";
 
 function App() {
   return (
@@ -10,10 +10,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home/>}>
-            <Route path="/" element={<SeriesTab />} />
+            <Route path="/" element={<ArticleContainer />} />
+            <Route path="/series" element={<SeriesContainer />} />
           </Route>
           <Route path="/write" element={<Write />}/>
-          <Route path="/*" element={<NotFound />}/>
         </Routes>
       </BrowserRouter>
     </div>
