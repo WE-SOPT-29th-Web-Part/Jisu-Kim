@@ -13,6 +13,30 @@ const StyledRoot = styled.div`
 const ProfileBox = styled.div`
 
 `
+const GithubBtn = styled(GithubLogo)`
+  margin-left: 0.5rem;
+  cursor: pointer;
+  fill: grey;
+  &:hover {
+    fill: black;
+  }
+`;
+const EmailBtn = styled(EmailIcon)`
+  margin-left: 0.5rem;
+  cursor: pointer;
+  fill: grey;
+  &:hover {
+    fill: black;
+  }
+`;
+const HomeBtn = styled(HomeIcon)`
+  margin-left: 0.5rem;
+  cursor: pointer;
+  fill: grey;
+  &:hover {
+    fill: black;
+  }
+`;
 
 const ProfileImg = styled.img`
   border-radius: 50%;
@@ -30,6 +54,9 @@ function Profile() {
       <ProfileBox>
         <ProfileImg src={profileImage} />
         <UserName>김지수</UserName>
+        <GithubBtn width="2rem" />
+        <EmailBtn width="2rem" />
+        <HomeBtn width="2rem" />
       </ProfileBox>
     </StyledRoot>
   )

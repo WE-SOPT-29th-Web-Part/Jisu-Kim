@@ -11,6 +11,7 @@ const StyledHeaderBody = styled.header`
   flex-direction: row;
   align-items: center;
   height: 4rem;
+  box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.05);
 `;
 
 const RightItems = styled.div`
@@ -19,10 +20,16 @@ const RightItems = styled.div`
   justify-content: space-around;
 `;
 
-const WriteButton = styled.button`
-  border: solid 1px white;
+const WriteLink = styled.button`
+  margin-right: 1rem;
+  padding: 4px 12px;
+  border: solid 2px white;
   background: white;
   color: #4fe5b3;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: ease-in 300ms;
+  border: 1px solid #4fe5b3;
 
   &:hover {
     background-color: #4fe5b3;
@@ -31,26 +38,41 @@ const WriteButton = styled.button`
   }
 `;
 
-const ProfileImg = styled.image`
-  width: 1rem;
-  height: 1rem;
+const ProfileImg = styled.img`
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
 `;
 
-function Header() {
+const SearchIcons = styled(SearchIcon)`
+  stroke: grey;
+  &:hover {
+    stroke: black;
+  }
+`;
 
+const SearchBtn = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+\
+`;
+
+
+
+function Header() {
   //글쓰기버튼, 내 프로필사진
 
   return (
-    <diStyledHeaderBody>
+    <StyledHeaderBody>
       <div>지수로그</div>
       <RightItems>
-        <WriteButton />
-        <SearchIcon />
+        <Link to="/write"><WriteLink>글 쓰기</WriteLink></Link>
+        <SearchBtn><SearchIcons width="20px" /></SearchBtn>
         <ProfileImg src={profileImage} />
-        <DropDownIcon />
+        <DropDownIcon width="20px" />
       </RightItems>
-    </diStyledHeaderBody>
+    </StyledHeaderBody>
   )
 }
 
