@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ArticleContent from '../components/Write/ArticleContent';
 import ArticleTag from '../components/Write/ArticleTag'
 import ArticleTitle from '../components/Write/ArticleTitle'
 import { client } from "../libs/api"
@@ -28,8 +29,9 @@ function Write() {
 
   return (
     <div>
-      <ArticleTag />
       <ArticleTitle />
+      <ArticleTag />
+      <ArticleContent />
     </div>
   )
 }
