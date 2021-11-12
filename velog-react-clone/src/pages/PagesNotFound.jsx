@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 
-const NotFoundMessage = styled.h1`
+const NotFoundMessage = styled.h2`
   text-align: center;
   color: rgb(68, 248, 161);
 `;

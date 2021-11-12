@@ -10,7 +10,6 @@ function Home() {
     <div>
       <HomeNav />
       <Profile />
-      <ArticleCard />
       <ArticleContainer />
     </div>
   )

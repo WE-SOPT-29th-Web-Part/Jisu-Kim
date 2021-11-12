@@ -25,15 +25,17 @@ const Tags = styled.span`
   padding: 0.5rem 1rem;
 `;
 
-function ArticleCard({ article }) {
-  const { id, title, body, summary, series, tags, thumbnail, date } = article;
-
+const ArticleCard = ({ article }) => {
+  console.log(article)
+  const { id, title, summary, series, tags, date } = article;
+  console.log(id);
+  console.log(article)
 
   return (
     <CardBox>
       <h3>{title}</h3>
       <p>{summary}</p>
-      {tags.map((tag) => (<Tags>{tag}</Tags>))}
+      {tags.map((tag) => (<Tags key={tag}>{tag}</Tags>))}
       <span>{date}</span>
     </CardBox>
   )

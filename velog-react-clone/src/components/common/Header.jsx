@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
 import { ReactComponent as DropDownIcon } from '../../assets/icons/dropdown_arrow.svg';
-
+import { Link } from 'react-router-dom'
+import profileImage from '../../assets/images/cherryblossom.jpg';
 
 const StyledHeaderBody = styled.header`
   display: flex;
@@ -18,8 +19,7 @@ const RightItems = styled.div`
   justify-content: space-around;
 `;
 
-
-const WirteButton = styled.button`
+const WriteButton = styled.button`
   border: solid 1px white;
   background: white;
   color: #4fe5b3;
@@ -30,6 +30,13 @@ const WirteButton = styled.button`
     border: solid 1px #4fe5b3;
   }
 `;
+
+const ProfileImg = styled.image`
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+`;
+
 function Header() {
 
   //글쓰기버튼, 내 프로필사진
@@ -38,7 +45,10 @@ function Header() {
     <diStyledHeaderBody>
       <div>지수로그</div>
       <RightItems>
-
+        <WriteButton />
+        <SearchIcon />
+        <ProfileImg src={profileImage} />
+        <DropDownIcon />
       </RightItems>
     </diStyledHeaderBody>
   )
