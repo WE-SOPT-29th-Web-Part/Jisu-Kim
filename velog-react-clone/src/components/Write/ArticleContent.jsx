@@ -12,10 +12,17 @@ const ContentInput = styled.input`
 `;
 
 
-function ArticleContent() {
+function ArticleContent({ setPostData }) {
+
+  const handleChange = (e) => {
+    setPostData((postData) => ({
+      ...postData,
+      body: e.target.value,
+    }))
+  }
   return (
     <>
-      <ContentInput type="text" />
+      <ContentInput type="text" onChange={handleChange} />
     </>
   )
 }
