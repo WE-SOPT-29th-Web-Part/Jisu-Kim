@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "axios": "^0.24.0",
+    "json-server": "^0.17.0",
+    "react-router-dom": "^6.0.2",
+    "reset-css": "^5.0.1",
+    "styled-components": "^5.3.3"
+  }
+}
