@@ -2,31 +2,31 @@
   box-sizing: border-box;
 }
 
-:root {
+:root[color-theme='light'] {
+  --background-color: rgb(0 0 0 3%);
   --title-color: black;
-  --content-color: rgb(37, 37, 37);
-  --bg-color: rgb(0 0 0 / 3%);
+  --text-color: rgb(37, 37, 37);
   --box-bg-color: white;
-  --btn-color: white;
-  --btn-hover-color: whitesmoke;
-  --pointer-color: #4fe5b3;
-  --dropdown-color: white;
+  --box-hover-color: whitesmoke;
+  --point-color: #4fe5b3;
+  --sub-color: grey;
+  --slider-color: lightgrey;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: white;
-    --content-color: rgb(231, 231, 231);
-    --bg-color: rgb(35, 35, 35);
-    --box-bg-color: rgb(77, 77, 77)
-    --btn-color:
-    --dropdown-color: rgb(37, 37, 37);
-  }
+:root[color-theme='dark'] {
+  --background-color: rgb(26 26 26);
+  --title-color: white;
+  --text-color: #ebebeb;
+  --box-bg-color: #3b3b3b;
+  --box-hover-color: #5b5b5b;
+  --sub-color: #d5d5d5;
+  --slider-color: #4fe5b3;
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--background-color);
   margin: 1rem 0;
+  transition: ease-in 300ms;
 }
 
 li {
@@ -44,13 +44,10 @@ h5 {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: var(--text-color);
 }
 
-path {
-  fill: var(--text-color);
-}
 
 button {
   cursor: pointer;
@@ -67,15 +64,15 @@ nav {
   justify-content: space-between;
 }
 
-.nav__logo {
-  background-color: none;
+.nav__logo path {
+  fill: var(--title-color);
 }
 
 .nav__right-box {
   color: var(--text-color);
   display: flex;
+  width: 21rem;
   align-items: center;
-  width: 15rem;
   justify-content: space-between;
 }
 
@@ -89,7 +86,7 @@ nav {
 }
 
 .nav__search:hover {
-  background-color: #bce4d7;
+  background-color: #ceece3;
   border-radius: 50%;
   transition: ease-in 300ms;
 }
@@ -130,9 +127,41 @@ nav {
   transition: all ease-in-out 300ms;
 }
 
+#switch {
+  display: inline-block;
+  width: 4rem;
+  height: 2rem;
+  background-color: var(--slider-color);
+  border-radius: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+#darkmode-checker {
+  display: none;
+}
+
+#darkmode-checker:checked + #switch-button {
+  margin-left: 2.25rem;
+  transition: ease-in-out;
+}
+
+#switch-button {
+  margin: 6px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  
+  border-radius: 50%;
+  transition: cubic-bezier(0.25, 0.27, 0.45, 1.13) 400ms;
+}
+
 main {
   padding: 0 1rem;
 }
+
+
 
 /* tab */
 
@@ -161,8 +190,9 @@ tab {
 }
 
 .active {
-  color: var(--content-color);
-  border-bottom: solid 2px var(--content-color);
+  color: var(--title-color);
+  border-bottom: solid 2.2px;
+  border-color: var(--title-color);
 }
 
 .tab__trending svg {
@@ -171,19 +201,20 @@ tab {
 
 .tab__dropdown {
   position: relative;
-
-  cursor: pointer;
-  font-size: 0.875rem;
-  border-radius: 6px;
   padding: 6px;
-  color: var(--dropdown-color);
-  box-shadow: rgb(0 0 0 / 5%) 0px 0px 4px;
-  background: var(--bg-color);
   height: 2rem;
   width: 5.25rem;
-  text-align: center;
   align-items: center;
   justify-content: space-around;
+  
+  background-color: var(--box-bg-color);
+  font-size: 0.875rem;
+  border-radius: 6px;
+  color: var(--dropdown-color);
+  box-shadow: rgb(0 0 0 / 5%) 0px 0px 4px;
+  text-align: center;
+  
+  cursor: pointer;
 }
 
 .tab__dropdown > a {
@@ -191,18 +222,15 @@ tab {
   align-items: center;
 }
 
-.tab__dropdown:hover {
-  color: rgb(75, 80, 84);
-}
-
 .tab__dropList {
+  color: var(--text-color);
   margin: 0.5rem 0 0 0;
   position: absolute;
   text-align: initial;
   left: 0;
   top: 100%;
   line-height: 2rem;
-  background-color: white;
+  background-color: var(--box-bg-color);
   border-radius: 0.3rem;
   font-size: 0.875rem;
   padding: 0;
@@ -218,7 +246,7 @@ tab {
 }
 
 .tab__dropList > li:hover {
-  background: whitesmoke;
+  background: var(--box-hover-color);
   color: #4fe5b3;
 }
 
@@ -231,6 +259,10 @@ tab {
 
 .tab__kebab {
   background: none;
+}
+
+.nav__dropdown path:last-child {
+  fill: var(--text-color);
 }
 
 /* 포스트카드 */
@@ -255,15 +287,17 @@ tab {
 }
 
 .main__desc-box {
+
+  background-color: var(--box-bg-color);
   display: flex;
-  padding: 0.8rem 1rem 0rem 1rem;
+  padding: 0.8rem 1rem 0.2rem 1rem;
   flex-direction: column;
   justify-content: space-around;
 }
 
 @media (max-width: 767px) {
   .main__postcard {
-    background-color: white;
+    background-color: var(--box-bg-color);
     border-radius: 4px;
     box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
     transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
@@ -319,6 +353,7 @@ tab {
 }
 
 .main__post-title {
+  color: var(--title-color);
   line-height: 1.4;
   font-size: 18px;
   margin-bottom: 0.5rem;
@@ -327,20 +362,20 @@ tab {
 .main__post-content {
   line-height: 1.5;
   font-size: 0.875rem;
-  color: rgb(75, 80, 84);
+  color: var(--text-color);
 }
 
 .main__post-date {
   margin: 1rem 0 0.8rem 0;
   font-size: 0.75rem;
-  color: rgb(134, 142, 150);
+  color: var(--sub-color);
 }
 
 .main__card-bottom {
   display: flex;
   border-top: solid 1px #ccc;
   padding: 4px 0;
-  color: grey;
+  color: var(--sub-color);
   font-size: 14px;
   justify-content: space-between;
   align-items: center;
