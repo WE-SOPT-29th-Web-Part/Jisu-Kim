@@ -5,12 +5,25 @@ import styled from 'styled-components';
 
 //input히스토리 최대 3개까지 뜬다.
 //히스토리 누르면 다시그 프로필박스가 뜬다.
-function History({user}) {
+function History({ userList, setUserList, getUserInfo }) {
+
+  const handleClick = (user) => {
+    getUserInfo(user);
+  }
+
+  const handleRemove = (user) => {
+    const newUserList = userList.filter((userId) => userId !== user);
+    setUserList(newUserList);
+    localStorage.setItem("userList", JSON.stringify(newUserList));
+  }
+
   return (
     <HistoryBox>
-      <HistoryList>
-        {user}
-      </HistoryList>
+      {userList && userList.map((user) => (
+        <HistoryList key={user}>
+          <span onClick={() => handleClick(user)}>{user}</span>
+          <button onClick={() => handleRemove(user)}>X</button>
+        </HistoryList>))}
     </HistoryBox>
   )
 }
